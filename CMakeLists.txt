@@ -21,11 +21,11 @@ juce_add_plugin(${TARGET_NAME}
   COPY_PLUGIN_AFTER_BUILD TRUE        # Should the plugin be installed to a default location after building?
   APP_SANDBOX_ENABLED TRUE
   APP_SANDBOX_OPTIONS com.apple.security.network.client com.apple.security.files.user-selected.read-write
-  FORMATS AU VST3 Standalone          # The formats to build. Other valid formats are: AAX Unity VST AU AUv3
+  FORMATS AU VST3                     # The formats to build. Other valid formats are: AAX Unity VST AU AUv3
   PRODUCT_NAME ${TARGET_NAME})        # The name of the final executable, which can differ from the target name
 
 juce_add_bundle_resources_directory(${TARGET_NAME}_VST3 ${ASSETS_DIR})
-juce_add_bundle_resources_directory(${TARGET_NAME}_Standalone ${ASSETS_DIR})
+
 
 if(TARGET ${TARGET_NAME}_AU)
   juce_add_bundle_resources_directory(${TARGET_NAME}_AU ${ASSETS_DIR})

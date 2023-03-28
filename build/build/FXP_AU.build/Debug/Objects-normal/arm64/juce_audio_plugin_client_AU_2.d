@@ -1,0 +1,30 @@
+dependencies: \
+  /Users/wolfram/Desktop/my_first_audio_plugin/juce/modules/juce_audio_plugin_client/juce_audio_plugin_client_AU_2.mm \
+  /Users/wolfram/Desktop/my_first_audio_plugin/juce/modules/juce_core/system/juce_TargetPlatform.h \
+  /Users/wolfram/Desktop/my_first_audio_plugin/juce/modules/juce_core/system/juce_CompilerWarnings.h \
+  /Users/wolfram/Desktop/my_first_audio_plugin/juce/modules/juce_audio_plugin_client/AU/AudioUnitSDK/AUBase.cpp \
+  /Users/wolfram/Desktop/my_first_audio_plugin/juce/modules/juce_audio_plugin_client/AU/AudioUnitSDK/AUBase.h \
+  /Users/wolfram/Desktop/my_first_audio_plugin/juce/modules/juce_audio_plugin_client/AU/AudioUnitSDK/AUBuffer.h \
+  /Users/wolfram/Desktop/my_first_audio_plugin/juce/modules/juce_audio_plugin_client/AU/AudioUnitSDK/AUUtility.h \
+  /Users/wolfram/Desktop/my_first_audio_plugin/juce/modules/juce_audio_plugin_client/AU/AudioUnitSDK/AUInputElement.h \
+  /Users/wolfram/Desktop/my_first_audio_plugin/juce/modules/juce_audio_plugin_client/AU/AudioUnitSDK/AUScopeElement.h \
+  /Users/wolfram/Desktop/my_first_audio_plugin/juce/modules/juce_audio_plugin_client/AU/AudioUnitSDK/ComponentBase.h \
+  /Users/wolfram/Desktop/my_first_audio_plugin/juce/modules/juce_audio_plugin_client/AU/AudioUnitSDK/AUMIDIUtility.h \
+  /Users/wolfram/Desktop/my_first_audio_plugin/juce/modules/juce_audio_plugin_client/AU/AudioUnitSDK/AUOutputElement.h \
+  /Users/wolfram/Desktop/my_first_audio_plugin/juce/modules/juce_audio_plugin_client/AU/AudioUnitSDK/AUPlugInDispatch.h \
+  /Users/wolfram/Desktop/my_first_audio_plugin/juce/modules/juce_audio_plugin_client/AU/AudioUnitSDK/AUBuffer.cpp \
+  /Users/wolfram/Desktop/my_first_audio_plugin/juce/modules/juce_audio_plugin_client/AU/AudioUnitSDK/AUBufferAllocator.cpp \
+  /Users/wolfram/Desktop/my_first_audio_plugin/juce/modules/juce_audio_plugin_client/AU/AudioUnitSDK/AUEffectBase.cpp \
+  /Users/wolfram/Desktop/my_first_audio_plugin/juce/modules/juce_audio_plugin_client/AU/AudioUnitSDK/AUEffectBase.h \
+  /Users/wolfram/Desktop/my_first_audio_plugin/juce/modules/juce_audio_plugin_client/AU/AudioUnitSDK/AUSilentTimeout.h \
+  /Users/wolfram/Desktop/my_first_audio_plugin/juce/modules/juce_audio_plugin_client/AU/AudioUnitSDK/AUInputElement.cpp \
+  /Users/wolfram/Desktop/my_first_audio_plugin/juce/modules/juce_audio_plugin_client/AU/AudioUnitSDK/AUMIDIBase.cpp \
+  /Users/wolfram/Desktop/my_first_audio_plugin/juce/modules/juce_audio_plugin_client/AU/AudioUnitSDK/AUMIDIBase.h \
+  /Users/wolfram/Desktop/my_first_audio_plugin/juce/modules/juce_audio_plugin_client/AU/AudioUnitSDK/AUMIDIEffectBase.cpp \
+  /Users/wolfram/Desktop/my_first_audio_plugin/juce/modules/juce_audio_plugin_client/AU/AudioUnitSDK/AUMIDIEffectBase.h \
+  /Users/wolfram/Desktop/my_first_audio_plugin/juce/modules/juce_audio_plugin_client/AU/AudioUnitSDK/AUOutputElement.cpp \
+  /Users/wolfram/Desktop/my_first_audio_plugin/juce/modules/juce_audio_plugin_client/AU/AudioUnitSDK/AUPlugInDispatch.cpp \
+  /Users/wolfram/Desktop/my_first_audio_plugin/juce/modules/juce_audio_plugin_client/AU/AudioUnitSDK/AUScopeElement.cpp \
+  /Users/wolfram/Desktop/my_first_audio_plugin/juce/modules/juce_audio_plugin_client/AU/AudioUnitSDK/ComponentBase.cpp \
+  /Users/wolfram/Desktop/my_first_audio_plugin/juce/modules/juce_audio_plugin_client/AU/AudioUnitSDK/MusicDeviceBase.cpp \
+  /Users/wolfram/Desktop/my_first_audio_plugin/juce/modules/juce_audio_plugin_client/AU/AudioUnitSDK/MusicDeviceBase.h

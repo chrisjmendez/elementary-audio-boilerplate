@@ -1,0 +1,8 @@
+/Users/wolfram/Desktop/my_first_audio_plugin/build/juce/tools/CMakeFiles/juce_lv2_helper.dir
+/Users/wolfram/Desktop/my_first_audio_plugin/build/juce/tools/CMakeFiles/install.dir
+/Users/wolfram/Desktop/my_first_audio_plugin/build/juce/tools/CMakeFiles/ALL_BUILD.dir
+/Users/wolfram/Desktop/my_first_audio_plugin/build/juce/tools/CMakeFiles/ZERO_CHECK.dir
+/Users/wolfram/Desktop/my_first_audio_plugin/build/juce/tools/modules/CMakeFiles/install.dir
+/Users/wolfram/Desktop/my_first_audio_plugin/build/juce/tools/extras/Build/CMakeFiles/install.dir
+/Users/wolfram/Desktop/my_first_audio_plugin/build/juce/tools/extras/Build/juceaide/CMakeFiles/juceaide.dir
+/Users/wolfram/Desktop/my_first_audio_plugin/build/juce/tools/extras/Build/juceaide/CMakeFiles/install.dir

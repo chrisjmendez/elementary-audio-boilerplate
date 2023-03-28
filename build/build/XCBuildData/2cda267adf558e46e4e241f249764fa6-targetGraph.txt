@@ -1,0 +1,15 @@
+Target dependency graph (5 targets)
+ZERO_CHECK in ElemEffectsPlugin, no dependencies
+FXP in ElemEffectsPlugin, depends on:
+ZERO_CHECK in ElemEffectsPlugin (explicit)
+FXP_AU in ElemEffectsPlugin, depends on:
+FXP in ElemEffectsPlugin (explicit)
+ZERO_CHECK in ElemEffectsPlugin (explicit)
+FXP_VST3 in ElemEffectsPlugin, depends on:
+FXP in ElemEffectsPlugin (explicit)
+ZERO_CHECK in ElemEffectsPlugin (explicit)
+ALL_BUILD in ElemEffectsPlugin, depends on:
+FXP_AU in ElemEffectsPlugin (explicit)
+FXP_VST3 in ElemEffectsPlugin (explicit)
+FXP in ElemEffectsPlugin (explicit)
+ZERO_CHECK in ElemEffectsPlugin (explicit)
