@@ -24,17 +24,11 @@ juce_add_plugin(${TARGET_NAME}
   FORMATS AU VST3 Standalone          # The formats to build. Other valid formats are: AAX Unity VST AU AUv3
   PRODUCT_NAME ${TARGET_NAME})        # The name of the final executable, which can differ from the target name
 
-# TODO: Can we do a if debug then symlink else copy?
 juce_add_bundle_resources_directory(${TARGET_NAME}_VST3 ${ASSETS_DIR})
 juce_add_bundle_resources_directory(${TARGET_NAME}_Standalone ${ASSETS_DIR})
 
 if(TARGET ${TARGET_NAME}_AU)
   juce_add_bundle_resources_directory(${TARGET_NAME}_AU ${ASSETS_DIR})
-endif()
-
-if (DEBUG)
-  add_custom_command(TARGET ${TARGET_NAME} POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E create_symlink ${ASSETS_DIR} ${idunno})
 endif()
 
 target_sources(${TARGET_NAME}
