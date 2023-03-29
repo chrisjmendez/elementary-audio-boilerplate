@@ -1,5 +1,58 @@
-# Created by https://www.toptal.com/developers/gitignore/api/node,webstorm+all,macos,windows
-# Edit at https://www.toptal.com/developers/gitignore?templates=node,webstorm+all,macos,windows
+# Created by https://www.toptal.com/developers/gitignore/api/macos,windows,webstorm+all,sublimetext,textmate,cmake,git,gitbook,node,homebrew
+# Edit at https://www.toptal.com/developers/gitignore?templates=macos,windows,webstorm+all,sublimetext,textmate,cmake,git,gitbook,node,homebrew
+
+### CMake ###
+CMakeLists.txt.user
+CMakeCache.txt
+CMakeFiles
+CMakeScripts
+Testing
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+_deps
+
+### CMake Patch ###
+# External projects
+*-prefix/
+
+### Git ###
+# Created by git for backups. To disable backups in Git:
+# $ git config --global mergetool.keepBackup false
+*.orig
+
+# Created by git when using merge tools for conflicts
+*.BACKUP.*
+*.BASE.*
+*.LOCAL.*
+*.REMOTE.*
+*_BACKUP_*.txt
+*_BASE_*.txt
+*_LOCAL_*.txt
+*_REMOTE_*.txt
+
+### GitBook ###
+# Node rules:
+## Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
+.grunt
+
+## Dependency directory
+## Commenting this out is preferred by some people, see
+## https://docs.npmjs.com/misc/faq#should-i-check-my-node_modules-folder-into-git
+node_modules
+
+# Book build output
+_book
+
+# eBook build output
+*.epub
+*.mobi
+*.pdf
+
+### Homebrew ###
+Brewfile.lock.json
 
 ### macOS ###
 # General
@@ -64,7 +117,6 @@ coverage
 .nyc_output
 
 # Grunt intermediate storage (https://gruntjs.com/creating-plugins#storing-task-files)
-.grunt
 
 # Bower dependency directory (https://bower.io/)
 bower_components
@@ -173,6 +225,44 @@ dist
 
 # SvelteKit build / generate output
 .svelte-kit
+
+### SublimeText ###
+# Cache files for Sublime Text
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+
+# Workspace files are user-specific
+*.sublime-workspace
+
+# Project files should be checked into the repository, unless a significant
+# proportion of contributors will probably not be using Sublime Text
+# *.sublime-project
+
+# SFTP configuration file
+sftp-config.json
+sftp-config-alt*.json
+
+# Package control specific files
+Package Control.last-run
+Package Control.ca-list
+Package Control.ca-bundle
+Package Control.system-ca-bundle
+Package Control.cache/
+Package Control.ca-certs/
+Package Control.merged-ca-bundle
+Package Control.user-ca-bundle
+oscrypto-ca-bundle.crt
+bh_unicode_properties.cache
+
+# Sublime-github package stores a github token in this file
+# https://packagecontrol.io/packages/sublime-github
+GitHub.sublime-settings
+
+### TextMate ###
+*.tmproj
+*.tmproject
+tmtags
 
 ### WebStorm+all ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
@@ -288,4 +378,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.toptal.com/developers/gitignore/api/node,webstorm+all,macos,windows
+# End of https://www.toptal.com/developers/gitignore/api/macos,windows,webstorm+all,sublimetext,textmate,cmake,git,gitbook,node,homebrew
