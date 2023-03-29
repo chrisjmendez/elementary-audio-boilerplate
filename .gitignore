@@ -2,6 +2,7 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,windows,webstorm+all,sublimetext,textmate,cmake,git,gitbook,node,homebrew
 
 choc/CMakeFiles
+choc/juce/tools
 
 ### CMake ###
 CMakeLists.txt.user
