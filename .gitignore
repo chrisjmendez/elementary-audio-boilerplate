@@ -1,6 +1,8 @@
 # Created by https://www.toptal.com/developers/gitignore/api/macos,windows,webstorm+all,sublimetext,textmate,cmake,git,gitbook,node,homebrew
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,windows,webstorm+all,sublimetext,textmate,cmake,git,gitbook,node,homebrew
 
+choc/CMakeFiles
+
 ### CMake ###
 CMakeLists.txt.user
 CMakeCache.txt
