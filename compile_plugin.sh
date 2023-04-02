@@ -27,8 +27,14 @@ npm run build;
 
 : 'XCode -----–––––––––––––––––––––––––––––––––––––––––'
 cd $DIR_PLUGIN;
-# Build the main audio plugin and store it in /build/
-cmake -G Xcode -DCMAKE_OSX_DEPLOYMENT_TARGET=10.15 -DCMAKE_OSX_ARCHITECTURES=arm64;x86_64 ../
+
+# Build for an Intell-based Mac
+#cmake -G Xcode -DCMAKE_OSX_DEPLOYMENT_TARGET=10.15 -DCMAKE_OSX_ARCHITECTURES=x86_64 ../
+
+# Build for an Apple Silicon-based Mac
+cmake -G Xcode -DCMAKE_OSX_DEPLOYMENT_TARGET=10.15 -DCMAKE_OSX_ARCHITECTURES=arm64 ../
+
+
 cmake --build .
 
 
