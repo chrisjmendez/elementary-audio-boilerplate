@@ -19,20 +19,20 @@ DIR_JS="$CWD/js/";
 
 : 'Javascript –––––––––––––––––––––––––––––––––––––––––'
 
-cd $DIR_JS;
+cd $DIR_JS || exit;
 # Install any JS dependencies using Node Package Manager
 npm i;
 # Build the main Javascript and store it in /js/build
 npm run build;
 
 : 'XCode -----–––––––––––––––––––––––––––––––––––––––––'
-cd $DIR_PLUGIN;
+cd $DIR_PLUGIN || exit;
 
 # Build for an Intell-based Mac
-#cmake -G Xcode -DCMAKE_OSX_DEPLOYMENT_TARGET=10.15 -DCMAKE_OSX_ARCHITECTURES=x86_64 ../
+cmake -G Xcode -DCMAKE_OSX_DEPLOYMENT_TARGET=10.15 -DCMAKE_OSX_ARCHITECTURES=x86_64 ../
 
 # Build for an Apple Silicon-based Mac
-cmake -G Xcode -DCMAKE_OSX_DEPLOYMENT_TARGET=10.15 -DCMAKE_OSX_ARCHITECTURES=arm64 ../
+#cmake -G Xcode -DCMAKE_OSX_DEPLOYMENT_TARGET=10.15 -DCMAKE_OSX_ARCHITECTURES=arm64 ../
 
 
 cmake --build .
