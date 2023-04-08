@@ -24,14 +24,52 @@ juce::File getAssetsDirectory()
 }
 
 //==============================================================================
-
 EffectsPluginProcessor::EffectsPluginProcessor()
      : AudioProcessor (BusesProperties()
                        .withInput  ("Input",  juce::AudioChannelSet::stereo(), true)
                        .withOutput ("Output", juce::AudioChannelSet::stereo(), true))
-    // A. This is unique for our project
      , jsContext(choc::javascript::createQuickJSContext())
 {
+    // Initialize parameters from the manifest file
+    auto manifestFile = getAssetsDirectory().getChildFile("manifest.json");
+
+    if (manifestFile.existsAsFile()) {
+        auto manifest = elem::js::parseJSON(manifestFile.loadFileAsString().toStdString());
+
+        if (!manifest.isObject())
+            return;
+
+        auto parameters = manifest.getWithDefault("parameters", elem::js::Array());
+
+        for (size_t i = 0; i < parameters.size(); ++i) {
+            auto descrip = parameters[i];
+
+            if (!descrip.isObject())
+                continue;
+
+            auto paramId = descrip.getWithDefault("paramId", elem::js::String("unknown"));
+            auto name = descrip.getWithDefault("name", elem::js::String("Unknown"));
+            auto minValue = descrip.getWithDefault("min", elem::js::Number(0));
+            auto maxValue = descrip.getWithDefault("max", elem::js::Number(1));
+            auto defValue = descrip.getWithDefault("defaultValue", elem::js::Number(0));
+
+            auto* p = new juce::AudioParameterFloat(
+                juce::ParameterID(paramId, 1),
+                name,
+                {static_cast<float>(minValue), static_cast<float>(maxValue)},
+                defValue
+            );
+
+            p->addListener(this);
+            addParameter(p);
+
+            // Push a new ParameterReadout onto the list to represent this parameter
+            paramReadouts.emplace_back(ParameterReadout { static_cast<float>(defValue), false });
+
+            // Update our state object with the default parameter value
+            state.insert_or_assign(paramId, defValue);
+        }
+    }
 }
 
 EffectsPluginProcessor::~EffectsPluginProcessor()
@@ -43,10 +81,6 @@ EffectsPluginProcessor::~EffectsPluginProcessor()
 }
 
 //==============================================================================
-// B. This is how you make the UIX.
-//    This generic editor is what JUICe provides.
-//    This is an area where an artist could make cooler UIX.
-//    Create this Blog Post => How do I use web technology to use an User Interface
 juce::AudioProcessorEditor* EffectsPluginProcessor::createEditor()
 {
     return new juce::GenericAudioProcessorEditor(*this);
@@ -84,7 +118,6 @@ double EffectsPluginProcessor::getTailLengthSeconds() const
 }
 
 //==============================================================================
-// C. This is wher eyou handle presets.
 int EffectsPluginProcessor::getNumPrograms()
 {
     return 1;   // NB: some hosts don't cope very well if you tell them there are 0 programs,
@@ -101,18 +134,11 @@ const juce::String EffectsPluginProcessor::getProgramName (int /* index */) { re
 void EffectsPluginProcessor::changeProgramName (int /* index */, const juce::String& /* newName */) {}
 
 //==============================================================================
-
-// D. HOST knows what it needs ot know.
-//    We know the sample rate, the block size for every callback.
-//    This is the moment before we render audio
-
 void EffectsPluginProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
-    // E. Make the Elementary Runtime
     runtime = std::make_unique<elem::Runtime<float>>(sampleRate, samplesPerBlock);
     jsContext = choc::javascript::createQuickJSContext();
 
-    // F. If a user changes tehir sample rate, we want to re-run our JavaScript
     // Install some native interop functions in our JavaScript environment
     jsContext.registerFunction("__getSampleRate__", [this](choc::javascript::ArgumentList args) {
         return choc::value::Value(getSampleRate());
@@ -131,7 +157,6 @@ void EffectsPluginProcessor::prepareToPlay (double sampleRate, int samplesPerBlo
         return choc::value::Value();
     });
 
-    // G.
     // A simple shim to write various console operations to our native __log__ handler
     jsContext.evaluate(R"shim(
 (function() {
@@ -151,7 +176,6 @@ void EffectsPluginProcessor::prepareToPlay (double sampleRate, int samplesPerBlo
 })();
     )shim");
 
-    // Load JS File
     // Load and evaluate our Elementary js main file
     auto dspEntryFile = getAssetsDirectory().getChildFile("main.js");
     jsContext.evaluate(dspEntryFile.loadFileAsString().toStdString());
@@ -171,7 +195,6 @@ bool EffectsPluginProcessor::isBusesLayoutSupported (const AudioProcessor::Buses
     return true;
 }
 
-// H. Forward the info into the Elementary Runtime and ask it to do its processing.
 void EffectsPluginProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce::MidiBuffer& /* midiMessages */)
 {
     if (runtime == nullptr)
@@ -191,7 +214,6 @@ void EffectsPluginProcessor::processBlock (juce::AudioBuffer<float>& buffer, juc
     );
 }
 
-// I. Lock-free way of alerting the main thread we have new params and we may need to compute.
 void EffectsPluginProcessor::parameterValueChanged (int parameterIndex, float newValue)
 {
     // Mark the updated parameter value in the dirty list
@@ -207,8 +229,6 @@ void EffectsPluginProcessor::parameterGestureChanged (int, bool)
 }
 
 //==============================================================================
-
-// J. Run on real-time thread. Placeholder code for now.
 void EffectsPluginProcessor::handleAsyncUpdate()
 {
     auto& params = getParameters();
@@ -236,7 +256,6 @@ void EffectsPluginProcessor::handleAsyncUpdate()
     dispatchStateChange();
 }
 
-// K. Placehoder
 void EffectsPluginProcessor::dispatchStateChange()
 {
     const auto* kDispatchScript = R"script(
@@ -260,7 +279,6 @@ void EffectsPluginProcessor::dispatchStateChange()
 }
 
 //==============================================================================
-// L. Whatevrer we save in our state object, it gets stored in the host
 void EffectsPluginProcessor::getStateInformation (juce::MemoryBlock& destData)
 {
     auto serialized = elem::js::serialize(state);
