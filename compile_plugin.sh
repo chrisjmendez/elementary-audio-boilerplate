@@ -28,14 +28,14 @@ npm run build;
 : 'XCode -----–––––––––––––––––––––––––––––––––––––––––'
 cd $DIR_PLUGIN;
 # Build the main audio plugin and store it in /build/
-cmake -G Xcode -DCMAKE_OSX_DEPLOYMENT_TARGET=10.15 -DCMAKE_OSX_ARCHITECTURES=arm64;x86_64 ../
+cmake -G Xcode -DCMAKE_OSX_DEPLOYMENT_TARGET=10.15 ../
 cmake --build .
 
 
 : 'Copy Files --–––––––––––––––––––––––––––––––––––––––––'
 # Copy the Plugins to macOS plugin directory
-cp ./build/FXP_artefacts/Debug/AU/FXP.component $HOME/Library/Audio/Plug-Ins/Components/
-cp ./build/FXP_artefacts/Debug/VST3/FXP.vst3 $HOME/Library/Audio/Plug-Ins/VST3/
+cp $DIR_PLUGIN/FXP_artefacts/Debug/AU/FXP.component $HOME/Library/Audio/Plug-Ins/Components/
+cp $DIR_PLUGIN/FXP_artefacts/Debug/VST3/FXP.vst3 $HOME/Library/Audio/Plug-Ins/VST3/
 
 # Open the Folder where the plugins should be installed
 open $HOME/Library/Audio/Plug-Ins/
